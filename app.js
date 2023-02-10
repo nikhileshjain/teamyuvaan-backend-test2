@@ -23,7 +23,42 @@ app.use(express.static('public'));
 //----------------------------------------------------------------------------------------------
 
 const collectionRef = firestore.collection(firebaseConfig.database, 'users');
+//---------------------------------------------------------------------------------------------
+//using mongodb...
 
+const URL = process.env.DB_URL || "mongodb://localhost:27017/yuvaan23";
+
+const connectDB = async () => {
+    try {
+        mongoose.set('strictQuery', false);
+        const conn = await mongoose.connect(URL, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            socketTimeoutMS: 60000,
+        })
+        console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+        console.log('Mongoose not connected!');
+        console.log(error);
+    }
+  };
+
+// mongoose.set('strictQuery', false);
+// mongoose.connect(URL, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     socketTimeoutMS: 60000,
+// })
+//     .then(res => {
+//         console.log('Mongoose connected!');
+//     })
+//     .catch(e => {
+//         console.log('Mongoose not connected!');
+//         console.log(e);
+//     })
+
+
+//--------------------------------------------------------------------
 let transporter = nodemailer.createTransport({
     service: 'Godaddy',
     host: "email.secureserver.net",  
@@ -47,27 +82,7 @@ const getId = () => {
     return str;
 }
 
-//---------------------------------------------------------------------------------------------
-//using mongodb...
 
-const URL = process.env.DB_URL || "mongodb://localhost:27017/yuvaan23";
-
-mongoose.set('strictQuery', false);
-mongoose.connect(URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    socketTimeoutMS: 60000,
-})
-    .then(res => {
-        console.log('Mongoose connected!');
-    })
-    .catch(e => {
-        console.log('Mongoose not connected!');
-        console.log(e);
-    })
-
-
-//--------------------------------------------------------------------
 
 app.get('/register', async (req, res) => {
     const response = await USER.findOneAndDelete({
@@ -199,6 +214,8 @@ app.get('/verified', async (req, res) => {
 
 
 PORT= process.env.PORT || 3000
-app.listen(PORT, () => {
-    console.log('Server running on!' + PORT);
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log("listening for requests");
+    })
 })
