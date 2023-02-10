@@ -1,0 +1,69 @@
+@import url('https://fonts.cdnfonts.com/css/compote');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #2c2825b0;
+    font-family: 'Compote', sans-serif;
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    min-width: 40%;
+    min-height: 40vh;
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.verified {
+    width: 100%;
+    height: 20vh;
+    margin-bottom: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.material-symbols-rounded {
+    color: rgb(218, 218, 14);
+    font-size: 9rem;
+}
+
+.user {
+    min-width: 85%;
+    height: 7vh;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: 0;
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, .3);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Compote', sans-serif;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}

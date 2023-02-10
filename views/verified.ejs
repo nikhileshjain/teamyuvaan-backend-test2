@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="verified.css" type="text/css">
+    <title>Verified User!</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="verified">
+            <span class="material-symbols-rounded">
+                verified
+            </span>
+        </div>
+        <input type="text" disabled class="user" value="userId : <%= data.userId %> ">
+        <input type="text" disabled class="user" value="Name : <%= data.fname %> <%= data.lname %>">
+        <input type="text" disabled class="user" value="Email : <%= data.email %>">
+        <input type="text" disabled class="user" value="Phone : <%= data.phone %>">
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "firebase": "^9.16.0",
+    "mongoose": "^6.9.0",
+    "nodemailer": "^6.9.1",
+    "uuid": "^9.0.0",
+    "validator": "^13.7.0"
+  },
+  "name": "yuvaan",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parthtyagii/yuvaan2023.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parthtyagii/yuvaan2023/issues"
+  },
+  "homepage": "https://github.com/parthtyagii/yuvaan2023#readme",
+  "description": ""
+}
