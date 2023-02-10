@@ -79,11 +79,11 @@ const connectDB = async () => {
 let transporter = nodemailer.createTransport({
     service: 'Godaddy',
     // service:'Outlook365',
-    host: "email.secureserver.net",
+    host: "smtpout.secureserver.net",
     // host:'smtp.office365.com',  
     // socketTimeoutMS: 60000,
     port: 587,
-    secure: false,
+    secure: true,
     auth: {
         user: process.env.EMAIL,
         pass: process.env.PASSWORD
@@ -140,6 +140,8 @@ app.post('/register', async (req, res) => {
     const user = new USER(data);
     try {
         await user.save();
+        console.log("SAVED " + data.faname);
+
     }
     catch (e) {
         console.log('cannot create user!');
@@ -190,6 +192,7 @@ app.post('/register', async (req, res) => {
         const info = await transporter.sendMail(mailOptions);
     }
     catch (e) {
+
         console.log('cannot send mail');
         console.log(e);
     }
