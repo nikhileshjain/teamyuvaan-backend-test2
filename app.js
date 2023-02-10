@@ -26,7 +26,7 @@ const collectionRef = firestore.collection(firebaseConfig.database, 'users');
 
 let transporter = nodemailer.createTransport({
     service: 'Godaddy',
-    host: "smtp.office365.com",  
+    host: "email.secureserver.net",  
     socketTimeoutMS: 60000,
     port: 587,
     secure: false,
@@ -57,7 +57,6 @@ mongoose.connect(URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     socketTimeoutMS: 60000,
-    serverSelectionTimeoutMS: 10000 // 5 seconds
 })
     .then(res => {
         console.log('Mongoose connected!');
