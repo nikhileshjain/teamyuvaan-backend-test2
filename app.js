@@ -71,6 +71,10 @@ mongoose.connect(URL, {
 //--------------------------------------------------------------------
 
 app.get('/register', async (req, res) => {
+    const response = await USER.findOneAndDelete({
+        email: 'pankajlahoti296@gmail.com',
+      })
+      console.log("pankaj removed now")
     res.render('index');
 });
 
