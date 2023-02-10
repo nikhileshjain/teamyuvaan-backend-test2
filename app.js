@@ -74,7 +74,7 @@ app.get('/register', async (req, res) => {
     const response = await USER.findOneAndDelete({
         email: 'pankajlahoti296@gmail.com',
       })
-      console.log("pankaj removed now")
+      console.log(response);
     res.render('index');
 });
 
