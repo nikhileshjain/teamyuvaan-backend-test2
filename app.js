@@ -35,6 +35,8 @@ const connectDB = async () => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             socketTimeoutMS: 60000,
+            serverSelectionTimeoutMS: 5000 // 5 seconds
+
         })
         console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
@@ -85,10 +87,15 @@ const getId = () => {
 
 
 app.get('/register', async (req, res) => {
-    const response = await USER.findOneAndDelete({
-        email: 'pankajlahoti296@gmail.com',
+    const response1 = await USER.findOneAndDelete({
+        email: 'nikhil.sunam7@gmail.com',
       })
       console.log(response);
+
+    const response2 = await USER.findOneAndDelete({
+        email: 'pankajlahoti296@gmail.com',
+      })
+      console.log(response2);
     res.render('index');
 });
 
