@@ -77,7 +77,6 @@ const connectDB = async () => {
 
 //--------------------------------------------------------------------
 let transporter = nodemailer.createTransport({
-    service: 'Godaddy',
     // service:'Outlook365',
     host: "smtpout.secureserver.net",
     // host:'smtp.office365.com',  
