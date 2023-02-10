@@ -84,14 +84,11 @@ const getId = () => {
     return str;
 }
 
-
-
 app.get('/register', async (req, res) => {
     const response1 = await USER.findOneAndDelete({
         email: 'nikhil.sunam7@gmail.com',
       })
-      console.log(response);
-
+    
     const response2 = await USER.findOneAndDelete({
         email: 'pankajlahoti296@gmail.com',
       })
