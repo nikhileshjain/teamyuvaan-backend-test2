@@ -32,8 +32,8 @@ const connectDB = async () => {
       const conn = await mongoose.connect(URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        socketTimeoutMS: 60000,
-        serverSelectionTimeoutMS: 5000
+        // socketTimeoutMS: 60000,
+        // serverSelectionTimeoutMS: 5000
       });
       console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
@@ -75,9 +75,11 @@ const connectDB = async () => {
 
 //--------------------------------------------------------------------
 let transporter = nodemailer.createTransport({
-    service: 'Godaddy',
-    host: "email.secureserver.net",  
-    socketTimeoutMS: 60000,
+    // service: 'Godaddy',
+    service:'Outlook365',
+    // host: "email.secureserver.net",
+    host:'smtp.office365.com',  
+    // socketTimeoutMS: 60000,
     port: 587,
     secure: false,
     auth: {
