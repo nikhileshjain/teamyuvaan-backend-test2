@@ -29,6 +29,8 @@ const collectionRef = firestore.collection(firebaseConfig.database, 'users');
 const URL = process.env.DB_URL || "mongodb://localhost:27017/yuvaan23";
 const connectDB = async () => {
     try {
+
+    mongoose.set('strictQuery', false);
       const conn = await mongoose.connect(URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -75,10 +77,10 @@ const connectDB = async () => {
 
 //--------------------------------------------------------------------
 let transporter = nodemailer.createTransport({
-    // service: 'Godaddy',
-    service:'Outlook365',
-    // host: "email.secureserver.net",
-    host:'smtp.office365.com',  
+    service: 'Godaddy',
+    // service:'Outlook365',
+    host: "email.secureserver.net",
+    // host:'smtp.office365.com',  
     // socketTimeoutMS: 60000,
     port: 587,
     secure: false,
