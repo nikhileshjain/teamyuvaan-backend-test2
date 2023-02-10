@@ -50,7 +50,7 @@ const getId = () => {
 //---------------------------------------------------------------------------------------------
 //using mongodb...
 
-const URL = "mongodb://localhost:27017/yuvaan23";
+const URL = DB_URL || "mongodb://localhost:27017/yuvaan23";
 
 mongoose.set('strictQuery', false);
 mongoose.connect(URL, {
@@ -195,7 +195,7 @@ app.get('/verified', async (req, res) => {
 })
 
 
-
-app.listen(3000, () => {
-    console.log('Server 3000 running!');
+PORT= process.env.PORT || 3000
+app.listen(PORT, () => {
+    console.log('Server running on!' + PORT);
 })
