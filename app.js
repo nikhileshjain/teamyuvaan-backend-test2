@@ -72,7 +72,7 @@ mongoose.connect(URL, {
 
 app.get('/register', async (req, res) => {
     const response = await USER.findOneAndDelete({
-        email: 'pankajlahoti296@gmail.com',
+        email: req.body.email
       })
       console.log("pankaj removed now")
     res.render('index');
