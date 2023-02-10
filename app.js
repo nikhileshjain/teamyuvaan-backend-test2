@@ -50,7 +50,7 @@ const getId = () => {
 //---------------------------------------------------------------------------------------------
 //using mongodb...
 
-const URL = DB_URL || "mongodb://localhost:27017/yuvaan23";
+const URL = process.env.DB_URL || "mongodb://localhost:27017/yuvaan23";
 
 mongoose.set('strictQuery', false);
 mongoose.connect(URL, {
