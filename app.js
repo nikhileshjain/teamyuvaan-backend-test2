@@ -27,23 +27,36 @@ const collectionRef = firestore.collection(firebaseConfig.database, 'users');
 //using mongodb...
 
 const URL = process.env.DB_URL || "mongodb://localhost:27017/yuvaan23";
-
 const connectDB = async () => {
     try {
-        mongoose.set('strictQuery', false);
-        const conn = await mongoose.connect(URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            socketTimeoutMS: 90000,
-            serverSelectionTimeoutMS: 90000 // 5 seconds
-
-        })
-        console.log(`MongoDB Connected: ${conn.connection.host}`);
+      const conn = await mongoose.connect(URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        socketTimeoutMS: 60000,
+        serverSelectionTimeoutMS: 5000
+      });
+      console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
-        console.log('Mongoose not connected!');
-        console.log(error);
+      console.log('MongoDB not connected!');
+      console.log(error);
     }
   };
+// const connectDB = async () => {
+//     try {
+//         mongoose.set('strictQuery', false);
+//         const conn = await mongoose.connect(URL, {
+//             useNewUrlParser: true,
+//             useUnifiedTopology: true,
+//             socketTimeoutMS: 90000,
+//             serverSelectionTimeoutMS: 5000 // 5 seconds
+
+//         })
+//         console.log(`MongoDB Connected: ${conn.connection.host}`);
+//     } catch (error) {
+//         console.log('Mongoose not connected!');
+//         console.log(error);
+//     }
+//   };
 
 // mongoose.set('strictQuery', false);
 // mongoose.connect(URL, {
